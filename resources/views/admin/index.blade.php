@@ -67,9 +67,9 @@
                 <td>{{ $rowu->created_at }}</td>
                 <td>{{ $rowu->email_verified_at }}</td>
                 <td>{{ $rowu->updated_at }}</td>
-                //ROUTE NIE DZIAŁA :C edit_user i delete_user
-                <td><a href="{{ route('admin.edit', ['id' => $rowu->id])}}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
-                <form method="POST" action="{{ route('admin.delete', ['id' => $rowu->id]) }}">
+              
+                <td><a href="{{ route('admin.edit_user', ['id' => $rowu->id])}}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                <form method="POST" action="{{ route('admin.delete_user', ['id' => $rowu->id]) }}">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i></button>

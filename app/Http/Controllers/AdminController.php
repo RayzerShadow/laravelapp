@@ -27,7 +27,7 @@ class AdminController extends Controller
     public function edit_user($id)
     {
         $service_user = User::find($id);
-        return view('admin.edit', ['user' => $service_user]);
+        return view('admin.edit_user', ['service_user' => $service_user]);
     }
 
         public function update($id, Request $request)
@@ -39,8 +39,21 @@ class AdminController extends Controller
         $service->description = $request->description;
         $service->time = $request->time;
         $service ->save();
-        return redirect()->route('admin')->with('message', 'faktura usunięta');
+        return redirect()->route('admin')->with('message', 'Serwis zmodyfikowany');
     }
+
+    public function update_user($id, Request $request)
+{
+    $service_user = user::find($id);
+
+    $service_user->name = $request->name;
+    $service_user->email = $request->email;
+    $service_user->created_at = $request->created_at;
+    $service_user->email_verified_at = $request->email_verified_at;
+    $service_user->updated_at = $request->updated_at;
+    $service_user ->save();
+    return redirect()->route('admin')->with('message', 'Użytkownik zmodyfikowany');
+}
 
     public function delete($id)
     {

@@ -45,10 +45,11 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin'
 
 Route::get('/edit/{id}', 'App\Http\Controllers\AdminController@edit')->name('admin.edit');
 
-//ROUTE NIE DZIAŁA :C
+
 Route::get('/edit_user/{id}', 'App\Http\Controllers\AdminController@edit_user')->name('admin.edit_user');
 Route::delete('usun_user/{id}', 'App\Http\Controllers\AdminController@delete_user')->name('admin.delete_user');
-//ROUTE NIE DZIAŁA :C
+Route::get('zmien_user/{id}', 'App\Http\Controllers\AdminController@update_user')->name('user.update_user');
+
 
 Route::get('zmien/{id}', 'App\Http\Controllers\AdminController@update')->name('services.update');
 Route::delete('usun/{id}', 'App\Http\Controllers\AdminController@delete')->name('admin.delete');
